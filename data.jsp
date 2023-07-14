@@ -19,6 +19,12 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
         .form-group {
             margin-bottom: 20px;
         }
@@ -91,7 +97,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Welcome to our Devops Project - Maor, Adir, Itay, Nitai</h2>
+        <h1>Welcome to our Devops Project - Maor, Adir, Itay, Nitai</h1>
         <form action="process.jsp" method="POST">
             <div class="form-group">
                 <label for="name">Name:</label>
