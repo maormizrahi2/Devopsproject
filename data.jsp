@@ -1,123 +1,381 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"%>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Background Inputs Example</title>
+  <head>
+    <base target="_parent" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://mdbootstrap.com/api/snippets/static/download/MDB5-Free_6.4.0/css/mdb.min.css"
+    />
+    <style></style>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
-        
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        
-        .form-group textarea {
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        
-        .form-group button {
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .form-group button span {
-            display: inline-block;
-        }
-        
-        .form-group button .clock {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 12px;
-            color: #fff;
-        }
-        
-        .form-group button:hover {
-            background-color: #45a049;
-        }
+      INPUT:-webkit-autofill,
+      SELECT:-webkit-autofill,
+      TEXTAREA:-webkit-autofill {
+        animation-name: onautofillstart;
+      }
+      INPUT:not(:-webkit-autofill),
+      SELECT:not(:-webkit-autofill),
+      TEXTAREA:not(:-webkit-autofill) {
+        animation-name: onautofillcancel;
+      }
+      @keyframes onautofillstart {
+      }
+      @keyframes onautofillcancel {
+      }
     </style>
-    <script>
-        function updateTime() {
-            var date = new Date();
-            var hours = date.getHours();
-            var minutes = date.getMinutes();
-            var seconds = date.getSeconds();
-            hours = hours < 10 ? "0" + hours : hours;
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-            var time = hours + ":" + minutes + ":" + seconds;
-            document.getElementById("clock").textContent = time;
-            setTimeout(updateTime, 1000);
+  </head>
+  <body>
+    <!--Main Navigation-->
+    <header>
+      <!-- Intro settings -->
+      <style>
+        /* Default height for small devices */
+        #intro {
+          height: 600px;
+          /* Margin to fix overlapping fixed navbar */
+          margin-top: 58px;
         }
-        updateTime();
-    </script>
-</head>
-<body>
-    <div class="container">
-        <h1>Welcome to our Devops Project - Maor, Adir, Itay, Nitai</h1>
-        <form action="process.jsp" method="POST">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+        @media (max-width: 991px) {
+          #intro {
+            /* Margin to fix overlapping fixed navbar */
+            margin-top: 45px;
+          }
+        }
+      </style>
+
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container-fluid">
+          <!-- Navbar brand -->
+          <a
+            class="navbar-brand"
+            target="_blank"
+            href="https://mdbootstrap.com/docs/standard/"
+          >
+            <img
+              src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
+              height="16"
+              alt=""
+              loading="lazy"
+              style="margin-top: -3px"
+            />
+          </a>
+          <button
+            class="navbar-toggler collapsed"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarExample01"
+            aria-controls="navbarExample01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarExample01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item active">
+                <a class="nav-link" aria-current="page" href="#intro">Home</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA"
+                  rel="nofollow"
+                  target="_blank"
+                  >Learn Bootstrap 5</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="https://mdbootstrap.com/docs/standard/"
+                  target="_blank"
+                  >Download MDB UI KIT</a
+                >
+              </li>
+            </ul>
+
+            <ul class="navbar-nav d-flex flex-row">
+              <!-- Icons -->
+              <li class="nav-item me-3 me-lg-0">
+                <a
+                  class="nav-link"
+                  href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA"
+                  rel="nofollow"
+                  target="_blank"
+                >
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </li>
+              <li class="nav-item me-3 me-lg-0">
+                <a
+                  class="nav-link"
+                  href="https://www.facebook.com/mdbootstrap"
+                  rel="nofollow"
+                  target="_blank"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="nav-item me-3 me-lg-0">
+                <a
+                  class="nav-link"
+                  href="https://twitter.com/MDBootstrap"
+                  rel="nofollow"
+                  target="_blank"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="nav-item me-3 me-lg-0">
+                <a
+                  class="nav-link"
+                  href="https://github.com/mdbootstrap/mdb-ui-kit"
+                  rel="nofollow"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar -->
+
+      <!-- Background image -->
+      <div
+        id="intro"
+        class="p-5 text-center bg-image shadow-1-strong"
+        style="
+          background-image: url('https://static.vecteezy.com/system/resources/thumbnails/006/965/779/small/empty-top-wooden-table-and-sakura-flower-with-fog-and-morning-light-background-photo.jpg');
+        "
+      >
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white px-4">
+              <h1 class="mb-3">Coming Soon!</h1>
+
+              <!-- Time Counter -->
+              <h3 id="time-counter" class="border border-light my-4 p-4">
+                29d 23h 59m 39s
+              </h3>
+
+              <p>We'reking hard to finish the development of this site.</p>
+
+              <p>Until then have a look at our Free Bootstrap 5 tutorials</p>
+
+              <a
+                class="btn btn-outline-light btn-lg m-2"
+                href="https://www.youtube.com/watch?v=c9B4TPnak1A"
+                role="button"
+                rel="nofollow"
+                target="_blank"
+                >Start tutorial</a
+              >
+              <a
+                class="btn btn-outline-light btn-lg m-2"
+                href="https://mdbootstrap.com/docs/standard/"
+                target="_blank"
+                role="button"
+                >Download MDB UI KIT</a
+              >
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+      </div>
+      <!-- Background image -->
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <main class="mt-5">
+      <div class="container">
+        <!--Section: Content-->
+        <section>
+          <div class="row">
+            <div class="col-md-6 gx-5 mb-4 d-lg-flex align-items-center">
+              <div>
+                <h4><strong>Subscribe to stay up to date </strong></h4>
+                <p class="text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Facilis consequatur eligendi quisquam doloremque vero ex
+                  debitis veritatis placeat unde animi laborum sapiente illo
+                  possimus, commodi dignissimos obcaecati illum maiores
+                  corporis.
+                </p>
+              </div>
             </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit">
-                    <span>Submit</span>
-                    <span id="clock" class="clock"></span>
+
+            <div class="col-md-6 gx-5 mb-4">
+              <form>
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                  <input type="text" id="form5Example1" class="form-control" />
+                  <label
+                    class="form-label"
+                    for="form5Example1"
+                    style="margin-left: 0px"
+                    >Name</label
+                  >
+                  <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px"></div>
+                    <div class="form-notch-middle" style="width: 42.4px"></div>
+                    <div class="form-notch-trailing"></div>
+                  </div>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" id="form5Example2" class="form-control" />
+                  <label
+                    class="form-label"
+                    for="form5Example2"
+                    style="margin-left: 0px"
+                    >Email address</label
+                  >
+                  <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px"></div>
+                    <div class="form-notch-middle" style="width: 88.8px"></div>
+                    <div class="form-notch-trailing"></div>
+                  </div>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">
+                  Subscribe!
                 </button>
+              </form>
             </div>
-        </form>
-    </div>
-</body>
+          </div>
+        </section>
+        <!--Section: Content-->
+      </div>
+    </main>
+    <!--Main layout-->
+
+    <!--Footer-->
+    <footer class="bg-light text-lg-start">
+      <div class="py-4 text-center">
+        <a
+          role="button"
+          class="btn btn-primary btn-lg m-2"
+          href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA"
+          rel="nofollow"
+          target="_blank"
+        >
+          Learn Bootstrap 5
+        </a>
+        <a
+          role="button"
+          class="btn btn-primary btn-lg m-2"
+          href="https://mdbootstrap.com/docs/standard/"
+          target="_blank"
+        >
+          Download MDB UI KIT
+        </a>
+      </div>
+
+      <hr class="m-0" />
+
+      <div class="text-center py-4 align-items-center">
+        <p>Follow MDB on social media</p>
+        <a
+          href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA"
+          class="btn btn-primary m-1"
+          role="button"
+          rel="nofollow"
+          target="_blank"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/mdbootstrap"
+          class="btn btn-primary m-1"
+          role="button"
+          rel="nofollow"
+          target="_blank"
+        >
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a
+          href="https://twitter.com/MDBootstrap"
+          class="btn btn-primary m-1"
+          role="button"
+          rel="nofollow"
+          target="_blank"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          href="https://github.com/mdbootstrap/mdb-ui-kit"
+          class="btn btn-primary m-1"
+          role="button"
+          rel="nofollow"
+          target="_blank"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2020 Copyright:
+        <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!--Footer-->
+
+    <!-- Time Counter -->
+    <script type="text/javascript">
+      // Set the date we're counting down to
+      var countDownDate = new Date();
+      countDownDate.setDate(countDownDate.getDate() + 30);
+
+      // Update the count down every 1 second
+      var x = setInterval(function () {
+        // Get todays date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now an the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.getElementById("time-counter").innerHTML =
+          days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("time-counter").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    </script>
+    <script
+      type="text/javascript"
+      src="https://mdbootstrap.com/api/snippets/static/download/MDB5-Free_6.4.0/js/mdb.min.js"
+    ></script>
+    <script type="text/javascript">
+      {
+      }
+    </script>
+  </body>
 </html>
