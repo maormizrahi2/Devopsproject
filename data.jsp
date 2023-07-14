@@ -53,16 +53,45 @@
             padding: 10px 20px;
             border-radius: 4px;
             cursor: pointer;
+            position: relative;
+        }
+        
+        .form-group button span {
+            display: inline-block;
+        }
+        
+        .form-group button .clock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            color: #fff;
         }
         
         .form-group button:hover {
             background-color: #45a049;
         }
     </style>
+    <script>
+        function updateTime() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            var time = hours + ":" + minutes + ":" + seconds;
+            document.getElementById("clock").textContent = time;
+            setTimeout(updateTime, 1000);
+        }
+        updateTime();
+    </script>
 </head>
 <body>
     <div class="container">
-        <h2>Background Inputs Example</h2>
+        <h2>Welcome to our Devops Project - Maor, Adir, Itay, Nitai</h2>
         <form action="process.jsp" method="POST">
             <div class="form-group">
                 <label for="name">Name:</label>
@@ -77,7 +106,10 @@
                 <textarea id="message" name="message" required></textarea>
             </div>
             <div class="form-group">
-                <button type="submit">Submit</button>
+                <button type="submit">
+                    <span>Submit</span>
+                    <span id="clock" class="clock"></span>
+                </button>
             </div>
         </form>
     </div>
